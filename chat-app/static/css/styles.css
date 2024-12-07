@@ -1,0 +1,203 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #2C2F38;
+    color: #E0E0E0;
+}
+
+/* Wrapper to hold the main layout */
+#app {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Set a fixed width for the sidebar */
+#sidebar {
+    width: 260px; /* Fixed sidebar width */
+    background-color: #1C1F26;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto; /* Allows scrolling in the sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid #3C3F4A;
+}
+
+/* Chat list styling */
+#chat-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-file {
+    display: flex;
+    justify-content: space-between; /* Ensure the filename and buttons are spaced out */
+    align-items: center; /* Vertically center content */
+    padding: 25px 12px;
+    background-color: #333;
+    margin-bottom: 6px;
+    border-radius: 5px;
+}
+
+.chat-file-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.chat-filename {
+    color: white;
+    flex-grow: 1; /* Take up remaining space to push buttons to the right */
+}
+
+.chat-file-actions {
+    display: flex;
+    gap: 6px; /* Space between the buttons */
+}
+
+/* Default button styles */
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the button content */
+    padding: 4px 8px;
+    background-color: #444;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px; /* Smaller font size */
+    height: 28px; /* Default height for buttons */
+}
+
+button:hover {
+    background-color: #666;
+}
+
+/* Specific style for the "Rename" button */
+button.rename-btn {
+    width: 90px; /* Make it longer */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if the text is too long */
+    height: 28px; /* Keep the same height as other buttons */
+}
+
+/* Style for "Delete" button */
+button.delete-btn {
+    height: 28px; /* Keep the same height as other buttons */
+}
+
+/* Adjust button height for other buttons (non "Rename" and "Delete") */
+button:not(.rename-btn):not(.delete-btn) {
+    height: 40px; /* Increase height for other buttons */
+}
+
+/* Ensure the chat area fills the remaining space */
+#chat-area {
+    flex-grow: 1; /* Chat area takes remaining space */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #2C2F38;
+    height: 100%;
+    overflow-y: auto;
+    max-width: calc(100% - 260px); /* Ensure chat area doesn't overflow sidebars width */
+}
+
+/* Chat history area */
+#chat-history {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    background-color: #1C1F26;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 80%;
+    width: 100%;
+}
+
+/* Messages container */
+#messages {
+    font-size: 16px;
+    line-height: 1.6;
+    width: 100%;
+    overflow-y: auto;
+    padding-bottom: 20px; /* To make sure last message is visible */
+}
+
+/* Input container */
+#input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background-color: #3C3F4A;
+    color: #E0E0E0;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#input:focus {
+    outline: none;
+    border: 2px solid #4A90E2;
+}
+
+#send-btn {
+    padding: 12px 18px;
+    border-radius: 25px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+    background-color: #357ABD;
+}
+
+/* Button container - for save and new chat */
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 14px;
+}
+
+button {
+    padding: 12px;
+    border-radius: 25px;
+    background-color: #444C56;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 48%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5A636F;
+}

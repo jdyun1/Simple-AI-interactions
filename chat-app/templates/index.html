@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天 AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <h3 style="color: white;padding: 20px">聊天记录</h3>
+            <ul id="chat-list">
+                {% for chat_file in chat_files %}
+                    <li class="chat-file" data-filename="{{ chat_file }}">
+                        <div class="chat-file-container">
+                            <span class="chat-filename">{{ chat_file }}</span>
+                            <div class="chat-file-actions">
+                                <button class="rename-btn" data-filename="{{ chat_file }}">重命名</button>
+                                <button class="delete-btn" data-filename="{{ chat_file }}">删除</button>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button id="new-chat-btn">新建聊天</button>
+        </div>
+        <div id="chat-area">
+            <div id="chat-history">
+                <div id="messages"></div>
+            </div>
+            <div id="input-container">
+                <input type="text" id="input" placeholder="请输入消息..." />
+                <button id="send-btn">发送</button>
+            </div>
+            <div id="button-container">
+                <button id="save-btn">保存聊天记录</button>
+                <button id="model-switch-btn">切换模型</button>
+            </div>            
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
